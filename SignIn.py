@@ -1,4 +1,5 @@
 import requests
+import random
 
 
 # 填写获取到的cookies
@@ -18,11 +19,21 @@ mobile_phone_code_url = "http://39.98.190.134:81/Account/GetLoginMobileCode"
 # 提交日常数据URL
 post_daily_data_url = "http://39.98.190.134:81/Report"
 
-# 伪造请求头
+#伪造请求头
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome / 57.0.2987.133Safari / 537.36"
 }
 
-r = requests.get(get_url, headers=headers, cookies=my_cookies)
-print(r.status_code)
-print(r.text)
+# r = requests.get(get_url, headers=headers, cookies=my_cookies)
+
+# 获取一个随机体温值
+get_random = random.randint(355, 365)
+get_my_temperature = get_random / 10.0
+my_daily_data = {"Temperature": str(get_my_temperature)}
+
+# 获取连接
+request = requests.request('GET', get_url, cookies=my_cookies, headers=headers)
+
+# 提交数据
+post = requests.request('POST', get_url, data=my_daily_data)
+
