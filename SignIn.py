@@ -35,5 +35,5 @@ my_daily_data = {"Temperature": str(get_my_temperature)}
 request = requests.request('GET', get_url, cookies=my_cookies, headers=headers)
 
 # 提交数据
-post = requests.request('POST', get_url, data=my_daily_data)
+post = requests.request('POST', get_url, data=my_daily_data, cookies=my_cookies)
 
