@@ -79,7 +79,7 @@ print(post.status_code)
 
 # 获取结果
 result_request = requests.request('GET', get_checkin_result_url, cookies=my_cookies, headers=headers)
-if result_request.status_code == '200':
+if result_request.status_code == 200:
     print("Im Fine Fuck You!")
 else:
     print("签到未成功，请手动检查")
