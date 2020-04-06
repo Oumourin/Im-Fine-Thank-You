@@ -24,7 +24,7 @@ get_checkin_result_url = "http://39.98.190.134:81/Report/Success"
 
 #伪造请求头
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome / 57.0.2987.133Safari / 537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
 }
 
 # r = requests.get(get_url, headers=headers, cookies=my_cookies)
@@ -32,14 +32,55 @@ headers = {
 # 获取一个随机体温值
 get_random = random.randint(355, 365)
 get_my_temperature = get_random / 10.0
-my_daily_data = {"Temperature": str(get_my_temperature)}
+my_daily_data = {"IsContactFever": "False",     # 这里开始
+                 "IsSymptoms": "",
+                 "IsSuspected": "",
+                 "IsConfirmed": "",
+                 "IsContactSuspected": "False",
+                 "IsContactConfirmed": "False",
+                 "IsContactEpidemic": "",
+                 "IsContactRisk": "False",      # 这里结束，参数应该所有人都是一样的 maybe
+                 "PersonnelTypeID": "6",        # 这里开始应该会每个人有差异
+                 "HolderID": "",
+                 "Holder": "",
+                 "province1": "50",
+                 "city1": "5001",
+                 "district1": "500117",
+                 "PositionID": "9",
+                 "province2": "50",
+                 "city2": "5001",
+                 "district2": "500117",
+                 "Temperature": str(get_my_temperature),
+                 "PhysicalConditionID": "1",
+                 "iscontactfever": "false",
+                 "iscontactsuspected": "false",
+                 "iscontactconfirmed": "false",
+                 "iscontactrisk": "false",
+                 "ReturnTime1": "",
+                 "province5": "000000",
+                 "city5": "000000",
+                 "district5": "000000",
+                 "ReturnTool": "自驾",
+                 "ReturnToolRemark": "",
+                 "ReturnRemark": "",
+                 "ReturnTime2": "",
+                 "Station": "其他",
+                 "Remarks": ""
+                 }
 
 # 获取连接
-request = requests.request('GET', get_url, cookies=my_cookies, headers=headers)
+# request = requests.request('GET', get_url, cookies=my_cookies, headers=headers)
 
 # 提交数据
-# post = requests.request('POST', get_url, data=my_daily_data, cookies=my_cookies)
+post = requests.request('POST', get_url, data=my_daily_data, cookies=my_cookies)
+print(post.text)
+print(post.status_code)
+
 
 # 获取结果
 result_request = requests.request('GET', get_checkin_result_url, cookies=my_cookies, headers=headers)
-print(result_request.text)
+if result_request.status_code == '200':
+    print("Im Fine Fuck You!")
+else:
+    print("签到未成功，请手动检查")
+
