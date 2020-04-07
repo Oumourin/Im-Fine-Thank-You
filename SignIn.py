@@ -72,7 +72,7 @@ my_daily_data = {"IsContactFever": "False",     # 这里开始
 # request = requests.request('GET', get_url, cookies=my_cookies, headers=headers)
 
 # 提交数据
-post = requests.request('POST', get_url, data=my_daily_data, cookies=my_cookies)
+post = requests.request('POST', post_daily_data_url, data=my_daily_data, cookies=my_cookies)
 print(post.text)
 print(post.status_code)
 
