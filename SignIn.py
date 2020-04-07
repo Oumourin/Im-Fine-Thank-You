@@ -83,8 +83,6 @@ request = requests.request('GET', get_url, cookies=my_cookies, headers=headers)
 # 提交数据
 post = requests.request('POST', post_daily_data_url, data=my_daily_data, cookies=my_cookies)
 
-
-
 # 获取结果
 result_request = requests.request('GET', get_checkin_result_url, cookies=my_cookies, headers=headers)
 soup = BeautifulSoup(result_request.content, 'lxml')
