@@ -1,5 +1,6 @@
 import requests
 import random
+from bs4 import BeautifulSoup
 
 
 # 填写获取到的cookies
@@ -72,15 +73,18 @@ my_daily_data = {"IsContactFever": "False",     # 这里开始
 # request = requests.request('GET', get_url, cookies=my_cookies, headers=headers)
 
 # 提交数据
-post = requests.request('POST', post_daily_data_url, data=my_daily_data, cookies=my_cookies)
-print(post.text)
-print(post.status_code)
+# post = requests.request('POST', post_daily_data_url, data=my_daily_data, cookies=my_cookies)
+# print(post.status_code)
+# print(post.url)
+# print(post.text)
+# print(post.status_code)
 
 
 # 获取结果
 result_request = requests.request('GET', get_checkin_result_url, cookies=my_cookies, headers=headers)
-if result_request.status_code == 200:
-    print("Im Fine Fuck You!")
+soup = BeautifulSoup(result_request.content, 'lxml')
+result_string = soup.find('h2').text
+if result_string == '打卡成功':
+    print('Im Fine Fuck You NUC')
 else:
-    print("签到未成功，请手动检查")
-
+    print('Check-in failed')
