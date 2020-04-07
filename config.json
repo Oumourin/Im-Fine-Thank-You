@@ -1,0 +1,42 @@
+{
+  "cookies": {
+    ".ASPXFORMSAUTHYZY": "D51E7C6AC416A3410F5442C605F87F161D159858C1DA470FBDC28E3DA1EAF697365AE6D8DCD088F04BCC1B5DFE1F7B85FC2C8081D8546C084A70855428A9F97271F4C82F13FAADC670F94CF584CBFAB819CBE1D66FAC9A217EC182165F3D85C2B42317E95DEC1402F76425BB19EBCA47",
+    "ASP.NET_SessionId": "yn24ltfeit3mnouenlj5mttc",
+    "__RequestVerificationToken": "4NDTDEnw06-yPQOoAcZAa7Rk3AaJi7d-G1vupcwy8NN09fA7gDvr8JEJ8X0JQ9FrkZM52VG6XOAUEnCTHCZJ6T2kCW6h_Ly541cy-0epOy41"
+  },
+  "data": {
+                 "IsContactFever": "False",
+                 "IsSymptoms": "",
+                 "IsSuspected": "",
+                 "IsConfirmed": "",
+                 "IsContactSuspected": "False",
+                 "IsContactConfirmed": "False",
+                 "IsContactEpidemic": "",
+                 "IsContactRisk": "False",
+                 "PersonnelTypeID": "6",
+                 "HolderID": "",
+                 "Holder": "",
+                 "province1": "50",
+                 "city1": "5001",
+                 "district1": "500117",
+                 "PositionID": "9",
+                 "province2": "50",
+                 "city2": "5001",
+                 "district2": "500117",
+                 "PhysicalConditionID": "1",
+                 "iscontactfever": "false",
+                 "iscontactsuspected": "false",
+                 "iscontactconfirmed": "false",
+                 "iscontactrisk": "false",
+                 "ReturnTime1": "",
+                 "province5": "000000",
+                 "city5": "000000",
+                 "district5": "000000",
+                 "ReturnTool": "自驾",
+                 "ReturnToolRemark": "",
+                 "ReturnRemark": "",
+                 "ReturnTime2": "",
+                 "Station": "其他",
+                 "Remarks": ""
+  }
+}
