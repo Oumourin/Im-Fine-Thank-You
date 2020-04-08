@@ -2,12 +2,8 @@ import requests
 import random
 from bs4 import BeautifulSoup
 import json
+import PushMessage
 
-
-# 填写获取到的cookies
-# my_cookies = {'.ASPXFORMSAUTHYZY': 'D51E7C6AC416A3410F5442C605F87F161D159858C1DA470FBDC28E3DA1EAF697365AE6D8DCD088F04BCC1B5DFE1F7B85FC2C8081D8546C084A70855428A9F97271F4C82F13FAADC670F94CF584CBFAB819CBE1D66FAC9A217EC182165F3D85C2B42317E95DEC1402F76425BB19EBCA47',
-#            'ASP.NET_SessionId': 'yn24ltfeit3mnouenlj5mttc',
-#            '__RequestVerificationToken': '4NDTDEnw06-yPQOoAcZAa7Rk3AaJi7d-G1vupcwy8NN09fA7gDvr8JEJ8X0JQ9FrkZM52VG6XOAUEnCTHCZJ6T2kCW6h_Ly541cy-0epOy41'}
 
 # 登录页面URL
 get_url = "http://39.98.190.134:81/Report/Reported"
@@ -24,7 +20,7 @@ post_daily_data_url = "http://39.98.190.134:81/Report"
 # 打卡结果获取URL
 get_checkin_result_url = "http://39.98.190.134:81/Report/Success"
 
-#伪造请求头
+# 伪造请求头
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
 }
@@ -53,6 +49,6 @@ result_request = requests.request('GET', get_checkin_result_url, cookies=my_cook
 soup = BeautifulSoup(result_request.content, 'lxml')
 result_string = soup.find('h2').text
 if result_string == '打卡成功':
-    print('Im Fine Fuck You NUC')
+    PushMessage.push_message("今日签到成功！")
 else:
-    print('Check-in failed')
+    PushMessage.push_message("今日签到失败！")
