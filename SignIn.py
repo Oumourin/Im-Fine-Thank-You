@@ -34,41 +34,6 @@ headers = {
 # 获取一个随机体温值
 get_random = random.randint(355, 365)
 get_my_temperature = get_random / 10.0
-# my_daily_data = {"IsContactFever": "False",     # 这里开始
-#                  "IsSymptoms": "",
-#                  "IsSuspected": "",
-#                  "IsConfirmed": "",
-#                  "IsContactSuspected": "False",
-#                  "IsContactConfirmed": "False",
-#                  "IsContactEpidemic": "",
-#                  "IsContactRisk": "False",      # 这里结束，参数应该所有人都是一样的 maybe
-#                  "PersonnelTypeID": "6",        # 这里开始应该会每个人有差异
-#                  "HolderID": "",
-#                  "Holder": "",
-#                  "province1": "50",
-#                  "city1": "5001",
-#                  "district1": "500117",
-#                  "PositionID": "9",
-#                  "province2": "50",
-#                  "city2": "5001",
-#                  "district2": "500117",
-#                  "Temperature": str(get_my_temperature),
-#                  "PhysicalConditionID": "1",
-#                  "iscontactfever": "false",
-#                  "iscontactsuspected": "false",
-#                  "iscontactconfirmed": "false",
-#                  "iscontactrisk": "false",
-#                  "ReturnTime1": "",
-#                  "province5": "000000",
-#                  "city5": "000000",
-#                  "district5": "000000",
-#                  "ReturnTool": "自驾",
-#                  "ReturnToolRemark": "",
-#                  "ReturnRemark": "",
-#                  "ReturnTime2": "",
-#                  "Station": "其他",
-#                  "Remarks": ""
-#                  }
 
 # Json解析
 with open("config.json", 'r', encoding='utf-8') as f:
