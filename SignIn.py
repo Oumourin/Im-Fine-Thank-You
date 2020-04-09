@@ -1,7 +1,6 @@
 import requests
 import random
 from bs4 import BeautifulSoup
-import json
 import PushMessage
 import LoadConfig
 
