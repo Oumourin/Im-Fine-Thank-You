@@ -3,6 +3,7 @@ import random
 from bs4 import BeautifulSoup
 import json
 import PushMessage
+import LoadConfig
 
 
 # 登录页面URL
@@ -32,8 +33,7 @@ get_random = random.randint(355, 365)
 get_my_temperature = get_random / 10.0
 
 # Json解析
-with open("config.json", 'r', encoding='utf-8') as f:
-    config_data = json.load(f)
+config_data = LoadConfig.load_config_json()
 my_cookies = config_data['cookies']
 my_daily_data = config_data['data']
 my_daily_data['Temperature'] = str(get_my_temperature)
